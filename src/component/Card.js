@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({data,BasketItem}) => {
   return (
     <div class="col-lg-3">
     <div class="header__cart">
@@ -11,8 +11,8 @@ export const Card = () => {
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="fa fa-shopping-bag"></i> <span>3</span>
+          <a >
+            <i onClick={()=>BasketItem()} class="fa fa-shopping-bag"></i> <span>{data.length}</span>
           </a>
         </li>
       </ul>
