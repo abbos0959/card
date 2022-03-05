@@ -18,17 +18,43 @@ import { Shopp } from "./component/Shopp";
 import { CardMap } from "./component/CardMap";
 
 function App() {
+  const [data, setdata] = useState([]);
+  const [basket, setbasket] = useState(false);
 
-  const [data,setdata]=useState([])
-  const [basket,setbasket]=useState(false)
+  const BasketItem = () => {
+    setbasket(!basket);
+  };
+  const HandleDelete = (id) => {
+    const salom = data.filter((a) => a.id !== id);
+    setdata(salom);
+  };
 
-  const BasketItem=()=>{
-    setbasket(!basket)
-  }
-  const HandleDelete=(id)=>{
-    const salom=data.filter(a=>a.id!==id)
-    setdata(salom)
-  }
+  const AddtoCard = (value) => {
+    const exist = data.find((x) => x.id === value.id);
+    if (exist) {
+      setdata(
+        data.map((x) =>
+          x.id === value.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setdata([...data, { ...value, qty: 1 }]);
+    }
+  };
+  const Ayiruv = (id) => {
+    const NewOrd = data.map((el) => {
+      if (el.id === id && el.qty > 0) {
+        const NewQuanti = el.qty - 1;
+        return {
+          ...el,
+          qty: NewQuanti,
+        };
+      } else {
+        return el;
+      }
+    });
+    setdata(NewOrd);
+  };
   console.log(basket);
   return (
     <div className="MainDiv">
@@ -39,7 +65,7 @@ function App() {
             V-Shop
           </a>
         </div>
-      <Shopp/>
+        <Shopp />
         <Login />
         <NavMobile />
         <div id="mobile-menu-wrap"></div>
@@ -67,14 +93,22 @@ function App() {
             <div class="col-lg-6">
               <Navbar />
             </div>
-            <Card  BasketItem={BasketItem} data={data}/>
+            <Card BasketItem={BasketItem} data={data} />
           </div>
           <div class="humberger__open">
             <i class="fa fa-bars"></i>
           </div>
         </div>
       </header>
-      {basket ? <CardMap  HandleDelete={HandleDelete} data={data}/> : null}
+      {basket && (
+        <CardMap
+        Ayiruv={Ayiruv}
+          AddtoCard={AddtoCard}
+          HandleDelete={HandleDelete}
+          data={data}
+        />
+      ) }
+      
 
       <section class="hero">
         <div class="container">
@@ -94,10 +128,10 @@ function App() {
       </section>
 
       <Slider />
-      <Map setdata={setdata} />
+      <Map data={data} setdata={setdata} />
 
       <Banner />
-       <Mahsulot />
+      <Mahsulot />
       <Past />
 
       <Footer />

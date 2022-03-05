@@ -13,9 +13,9 @@ export const Footer = () => {
               </a>
             </div>
             <ul>
-              <li>Address: Ludhiana</li>
-              <li>Phone: 1234567890</li>
-              <li>Email: therichposts@gmail.com</li>
+              <li>G`ulomov Abbos</li>
+              <li>Phone: 998906770959</li>
+              <li>Email: Abbos1999@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -77,8 +77,8 @@ export const Footer = () => {
               </button>
             </form>
             <div class="footer__widget__social">
-              <a href="#">
-                <i class="fa fa-facebook"></i>
+              <a target="_blank" href="https://t.me/Abbos_Akromovich_1999">
+                <i class="fa fa-telegram"></i>
               </a>
               <a href="#">
                 <i class="fa fa-instagram"></i>
