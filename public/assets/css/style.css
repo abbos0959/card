@@ -3320,6 +3320,12 @@ ol {
 		color: #6f6f6f;
 		display: inline-block;
 	}
+	.btn-container {
+		margin-bottom: 4rem;
+		display: flex;
+		justify-content: center;
+	  }
+	
 	.humberger__menu__cart .header__cart__price span {
 		color: #252525;
 		font-weight: 700;

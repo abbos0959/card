@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Mahsulot = () => {
   return (
-    <section class="latest-product spad">
+    <section class="latest-product spad" id='shopp'>
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 export const Map = ({ setdata ,data}) => {
   const Data = [
     {
@@ -70,9 +71,23 @@ export const Map = ({ setdata ,data}) => {
         setdata([...data,{...value,qty:1}])
     }
   };
+  const Allcategory=["all", ...new Set(Data.map((val)=>val.category))]
+  const [cat,setcat]=useState(Allcategory)
+  const [baza,setbaza]=useState(Data)
+  console.log(cat);
+  const FilterCategory=(abbos)=>{
+    if("all"===abbos){
+      setbaza(Data)
+      return;
+    }
+    
+      const newFilter=Data.filter(a=>a.category===abbos)
+      setbaza(newFilter)
+    
+  }
 
   return (
-    <section class="featured spad">
+    <section class="featured spad" id="map">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -81,19 +96,15 @@ export const Map = ({ setdata ,data}) => {
             </div>
             <div class="featured__controls">
               <ul>
-                <li class="active" data-filter="*">
-                  All
-                </li>
-                <li data-filter=".oranges">Oranges</li>
-                <li data-filter=".fresh-meat">Fresh Meat</li>
-                <li data-filter=".vegetables">Vegetables</li>
-                <li data-filter=".fastfood">Fastfood</li>
+              {cat.map((i)=>(
+                <button className="filter-btn" onClick={()=>FilterCategory(i)}>{i}</button>
+              ))}
               </ul>
             </div>
           </div>
         </div>
         <div class="row featured__filter">
-          {Data.map((value) => (
+          {baza.map((value) => (
             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
               <div class="featured__item">
                 <div class="featured__item__pic set-bg" data-setbg={value.img}>

@@ -18,3 +18,22 @@ nav{
 .abb{
   background-color: white;
 }
+.filter-btn {
+  background: transparent;
+  border-color: transparent;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  letter-spacing: 1px;
+  padding: 0.375rem 0.75rem;
+  color: #2c2891;
+  cursor: pointer;
+  /* color: white; */
+  transition: var(--transition);
+  border-radius: var(--radius);
+  }
+  .filter-btn:hover {
+  background: #2c2891;
+  color: var(--clr-white);
+  color: white;
+  }

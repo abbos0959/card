@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Card = ({data,BasketItem}) => {
+export const Card = ({data,BasketItem ,total}) => {
   return (
     <div class="col-lg-3">
     <div class="header__cart">
@@ -17,7 +17,7 @@ export const Card = ({data,BasketItem}) => {
         </li>
       </ul>
       <div class="header__cart__price">
-        item: <span>$150.00</span>
+        item: <span>{total}$ </span>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <footer class="footer spad">
+    <footer class="footer spad" id='contact'>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">

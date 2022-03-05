@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Past = () => {
   return (
-    <section class="from-blog spad">
+    <section class="from-blog spad" id='blog'>
         <div class="container">
           <div class="row">
             <div class="col-lg-12">

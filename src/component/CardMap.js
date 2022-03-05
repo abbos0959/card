@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const CardMap = ({ data, HandleDelete, AddtoCard ,Ayiruv}) => {
-  const total =data.reduce((a,b)=>{
-    return  a +b.qty*b.price
-  },0)
+
+export const CardMap = ({ data, HandleDelete, AddtoCard, Ayiruv,total }) => {
+ 
+
   return (
     <div>
       <div className="row mt-3">
@@ -34,7 +34,7 @@ export const CardMap = ({ data, HandleDelete, AddtoCard ,Ayiruv}) => {
                   >
                     -
                   </button>
-                <button className="btn btn-secondary"> {i.qty} </button>  
+                  <button className="btn btn-secondary"> {i.qty} </button>
                   <button
                     onClick={() => AddtoCard(i)}
                     className="btn btn-primary btn-sm"

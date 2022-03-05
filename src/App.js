@@ -28,6 +28,9 @@ function App() {
     const salom = data.filter((a) => a.id !== id);
     setdata(salom);
   };
+  const total = data.reduce((a, b) => {
+    return a + b.qty * b.price;
+  }, 0);
 
   const AddtoCard = (value) => {
     const exist = data.find((x) => x.id === value.id);
@@ -91,9 +94,9 @@ function App() {
               </div>
             </div>
             <div class="col-lg-6">
-              <Navbar />
+              <Navbar BasketItem={BasketItem} />
             </div>
-            <Card BasketItem={BasketItem} data={data} />
+            <Card total={total} BasketItem={BasketItem} data={data} />
           </div>
           <div class="humberger__open">
             <i class="fa fa-bars"></i>
@@ -102,6 +105,7 @@ function App() {
       </header>
       {basket && (
         <CardMap
+        total={total}
         Ayiruv={Ayiruv}
           AddtoCard={AddtoCard}
           HandleDelete={HandleDelete}
